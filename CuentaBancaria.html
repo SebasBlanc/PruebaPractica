@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuenta Bancaria</title>
+</head>
+<body>
+
+  <h2>Cuenta Bancaria</h2>
+
+  <script>
+    // Clase CuentaBancaria
+    class CuentaBancaria {
+      constructor(titular, saldoInicial = 0) {
+        this.titular = titular;
+        this.saldo = saldoInicial;
+        this.historial = [];
+      }
+
+      // Método para depositar dinero
+      depositar(cantidad) {
+        if (cantidad > 0) {
+          this.saldo += cantidad;
+          this.historial.push(`Depósito: ${cantidad}`);
+          alert(`Depósito exitoso. Nuevo saldo: ${this.saldo}`);
+        } else {
+          alert("La cantidad a depositar debe ser positiva.");
+        }
+      }
+
+      // Método para retirar dinero
+      retirar(cantidad) {
+        if (cantidad > 0 && this.saldo >= cantidad) {
+          this.saldo -= cantidad;
+          this.historial.push(`Retiro: ${cantidad}`);
+          alert(`Retiro exitoso. Nuevo saldo: ${this.saldo}`);
+        } else if (cantidad <= 0) {
+          alert("La cantidad a retirar debe ser positiva.");
+        } else {
+          alert("Saldo insuficiente.");
+        }
+      }
+
+      // Método para consultar el saldo actual
+      consultarSaldo() {
+        alert(`Saldo actual: ${this.saldo}`);
+      }
+
+      // Método para mostrar el historial de transacciones
+      mostrarHistorial() {
+        let historialTransacciones = "Historial de transacciones:\n";
+        this.historial.forEach((transaccion, index) => {
+          historialTransacciones += `${index + 1}. ${transaccion}\n`;
+        });
+        alert(historialTransacciones);
+      }
+    }
+
+    let cuenta;  // Variable para almacenar la cuenta bancaria
+
+    // Función para el menú
+    function mostrarMenu() {
+      let opcion = prompt(`
+        Elige una opción:
+        1. Crear cuenta bancaria
+        2. Depositar dinero
+        3. Retirar dinero
+        4. Consultar saldo
+        5. Ver historial de transacciones
+        6. Salir
+      `);
+
+      switch (opcion) {
+        case '1':
+          let persona = prompt('¿Cual es el nombre del Titular?');
+          let PrimerSaldo = parseFloat(prompt('¿Cuánto deseas depositar?'));
+          cuenta = new CuentaBancaria(persona, PrimerSaldo);  // Crear la cuenta 
+          mostrarMenu();
+          break;
+        case '2':
+          let deposito = parseFloat(prompt('¿Cuánto deseas depositar?'));
+            cuenta.depositar(deposito);
+          
+          mostrarMenu();
+          break;
+        case '3':
+          let retiro = parseFloat(prompt('¿Cuánto deseas retirar?'));
+            cuenta.retirar(retiro);
+          mostrarMenu();
+          break;
+        case '4':
+          cuenta.consultarSaldo();
+          mostrarMenu();
+          break;
+        case '5':
+          cuenta.mostrarHistorial();
+          mostrarMenu();
+          break;
+        case '6':
+          alert("Gracias por su visita!");
+          break;
+        default:
+          alert("Opción inválida. Intenta nuevamente.");
+          mostrarMenu();
+          break;
+      }
+    }
+
+    // Iniciar el menú 
+    mostrarMenu();
+  </script>
+
+</body>
+</html>
+
