@@ -54,6 +54,12 @@ El hashing es cuando se toma la entrada de datos y la transforma a una cantidad 
 Y la encriptacion es cuando los datos se convierten en caracteres y se convierten de forma ilegible y los ejemplos de uso es en transito de datos en protocolos HTTPS o a la hora de encriptar datos sencibles como transacciones o datos personales.
 
 
+10.	¿Qué son las pruebas unitarias y por qué son importantes en el desarrollo de software?
+    Las pruebas unitarias son aquellas pruebas que se le realizan funciones o elemento para ver si el funcionamiento es el correctoi
+   	 
+11)	Explica el principio SOLID en la programación orientada a objetos y proporciona un ejemplo de código donde se aplique.
+12).	¿Qué es el control de versiones y cuál es la diferencia entre un merge y un rebase en Git?
+El control de versiones Git sirve para gestionar los cobios realizados en un proyecto, es extremadamente util para mantener un orden a la hora de desarrollar y ademas permite que varias personas trabajen sobre el mismo proyecto.
 
 
    
